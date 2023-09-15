@@ -1,4 +1,4 @@
-# ESVIO_AA: Direct Visual-Inertial Odometry with a Stereo Event Camera
+# ESVIO_AA: IMU-Aided Event-based Stereo Visual Odometry
 
 ## Coming Soon
 
