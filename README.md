@@ -2,7 +2,7 @@
 
 ## Coming Soon
 
-This repository contains the code implementation for our paper titled "Direct Visual-Inertial Odometry with a Stereo Event Camera," submitted to ICRA.
+This repository contains the code implementation for our paper titled "IMU-Aided Event-based Stereo Visual Odometry", submitted to ICRA.
 
 ## Abstract
 
