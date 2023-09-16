@@ -10,7 +10,7 @@ We improve our previous direct pipeline Event-based Stereo Visual Odometry ( ref
 
 ## Comparing with us
 
-We welcome comparative evaluation before this project is open sourced. The original trajectories of ESVO ( Block Matching using 10,000 events ) and ESVIO_AA ( Block Matching using 5,000 events ) have been uploaded.
+We welcome comparative evaluation before this project is open sourced. The original trajectories estimated by ESVO ( Block Matching using 10,000 events ) and ESVIO_AA ( Block Matching using 5,000 events ) on DSEC dataset have been uploaded.
 
 ## Contact
 
