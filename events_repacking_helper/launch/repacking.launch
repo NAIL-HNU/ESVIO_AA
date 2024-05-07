@@ -1,0 +1,7 @@
+<launch>
+  <node name="EventMessageEditor" pkg="events_repacking_helper" type="EventMessageEditor" output="screen" required="true"
+    args="/home/njk/Downloads/dataset/city00b/dsec_city0b.bag
+          /home/njk/Downloads/dataset/city00b/lidar_imu_b.bag
+          /home/njk/Downloads/dataset/city00b/event_imu_b.bag">
+  </node>
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+    <!-- ROS BAG -->
+
+    <node pkg="rosbag" type="play" name="play" output="screen"
+    	args="/home/zhouyi/workspace/dataset/DVS/rpg_blender/3planes_stereo_new.bag -r 0.1 -l" />
+
+</launch>

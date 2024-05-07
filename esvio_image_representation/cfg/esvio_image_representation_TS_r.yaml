@@ -1,0 +1,14 @@
+synchronize_on_external_time: True
+use_stereo_cam: True
+representation_mode: 2
+    # TS,    //0
+    # AA(Adaptive Accumulation),   //1
+    # Linear_TS //2
+decay_ms: 30
+median_blur_kernel_size: 1
+TOS_k: 9
+TOS_T: 241
+use_sim_time: True
+substraction_delta: 20
+rect_size: 80
+is_left: False
