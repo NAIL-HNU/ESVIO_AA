@@ -4,7 +4,7 @@
 
 * **[Event-based Stereo Visual Odometry](https://arxiv.org/abs/2007.15548)**, *Yi Zhou, Guillermo Gallego, Shaojie Shen*, arXiv preprint 2020 (under review).
 * **[Semi-dense 3D Reconstruction with a Stereo Event Camera](https://arxiv.org/abs/1807.07429)**, *Yi Zhou, Guillermo Gallego, Henri Rebecq, Laurent Kneip, Hongdong Li, Davide Scaramuzza*, ECCV 2018.
-* [**IMU-Aided Event-based Stereo Visual Odometry**](http://arxiv.org/abs/2405.04071), Junkai Niu, Sheng Zhong, Yi Zhou, ICRA 2024.
+* [**IMU-Aided Event-based Stereo Visual Odometry**](http://arxiv.org/abs/2405.04071), Junkai Niu, Sheng Zhong, Yi Zhou, ICRA 2024. ( [Video link](https://b23.tv/86adQ8p) )
 
 ## 2. Abstract
 
