@@ -1,14 +1,14 @@
-# ESVIO_AA: IMU-Aided Event-based Stereo Visual Odometry
+# Event-based Stereo Visual-Inertial Odometry (ESVIO_AA)
 
 ## 1. Related Publications
 
-* **[Event-based Stereo Visual Odometry](https://arxiv.org/abs/2007.15548)**, *Yi Zhou, Guillermo Gallego, Shaojie Shen*, arXiv preprint 2020 (under review).
+* **[Event-based Stereo Visual Odometry (ESVO)](https://arxiv.org/abs/2007.15548)**, *Yi Zhou, Guillermo Gallego, Shaojie Shen*, IEEE Transactions on Robotics (T-RO), 37(5):1433-1450, 2021.
 * **[Semi-dense 3D Reconstruction with a Stereo Event Camera](https://arxiv.org/abs/1807.07429)**, *Yi Zhou, Guillermo Gallego, Henri Rebecq, Laurent Kneip, Hongdong Li, Davide Scaramuzza*, ECCV 2018.
-* [**IMU-Aided Event-based Stereo Visual Odometry**](http://arxiv.org/abs/2405.04071), Junkai Niu, Sheng Zhong, Yi Zhou, ICRA 2024. ( [Video link](https://b23.tv/86adQ8p) )
+* **[IMU-Aided Event-based Stereo Visual Odometry](http://arxiv.org/abs/2405.04071)**, Junkai Niu, Sheng Zhong, Yi Zhou, ICRA 2024. [Video link](https://b23.tv/86adQ8p)
 
 ## 2. Abstract
 
-We improve our previous direct pipeline Event-based Stereo Visual Odometry ( refer to the **[ESVO Project Page](https://sites.google.com/view/esvo-project-page/home)** ) in terms of accuracy and efficiency. 
+We improve our previous pipeline ESVO (refer to the [ESVO Project Page](https://sites.google.com/view/esvo-project-page/home)) in terms of accuracy and efficiency. 
 
 In this work, we achieve a large improvement in trajectory accuracy on the DSEC dataset.
 
@@ -21,7 +21,9 @@ We have tested ESVO on machines with the following configurations
 
 ### 3.1 Driver Installation
 
-To work with event cameras, especially for the Dynamic Vision Sensors (DVS/DAVIS), you need to install some drivers. Please follow the instructions (steps 1-9) at [rpg_dvs_ros](https://github.com/uzh-rpg/rpg_dvs_ros) before moving on to the next step. Note that you need to replace the name of the ROS distribution with the one installed on your computer.
+To work with event cameras, especially for the Dynamic Vision Sensors (DVS/DAVIS), you need to install some drivers. 
+Please follow the instructions (steps 1-9) at [rpg_dvs_ros](https://github.com/uzh-rpg/rpg_dvs_ros) before moving on to the next step. 
+Note that you need to replace the name of the ROS distribution with the one installed on your computer.
 
 We use catkin tools to build the code. You should have it installed during the driver installation.
 
@@ -74,7 +76,8 @@ catkin_make
 
 ### 4.1 Time Surface and AA map
 
-Compared with ESVO, we have accelerated the generation speed of time surface. You can try to run it using the following commands.
+Compared with ESVO, we have accelerated the generation speed of time surfaces. 
+You can try to run it using the following commands.
 
 ```shell
 cd ~/catkin_ws
@@ -86,7 +89,8 @@ roslaunch esvio_image_representation esvio_image_representation_stereo_AA.launch
 
 Since the rosbag with event and IMU data is not given in the DSEC data set, we package the required data as the input of the system. 
 
-You can get part of the rosbag we repacked through the [zurich_city_04a_download link](https://drive.google.com/file/d/14X_iXLNn25mYKAtqgo3qSTQDtxnmyazs/view?usp=drive_link)  and the [zurich_city_04b_download link](https://drive.google.com/file/d/1-DnOzkxc-aj7whOrdBoxuQUOXhjazoPw/view?usp=drive_link). In addition, if you need repacked packages for other sequences of zurich_city_04 or zurich_city_11, please contact us.
+You can get part of the rosbag we repacked through the [zurich_city_04a_download link](https://drive.google.com/file/d/14X_iXLNn25mYKAtqgo3qSTQDtxnmyazs/view?usp=drive_link) and the [zurich_city_04b_download link](https://drive.google.com/file/d/1-DnOzkxc-aj7whOrdBoxuQUOXhjazoPw/view?usp=drive_link). 
+In addition, if you need repacked packages for other sequences of zurich_city_04 or zurich_city_11, please contact us.
 
 After you get the repackaged data, you can try running it using the following command.
 
@@ -98,7 +102,7 @@ roslaunch esvo_core system_dsec.launch
 
 ## 5. Comparing with us
 
-We welcome comparative evaluation before this project is open sourced. The original trajectories estimated by ESVO ( Block Matching using 10,000 events ) and ESVIO_AA ( Block Matching using 5,000 events ) on DSEC dataset have been uploaded.
+We welcome comparative evaluation before this project is open sourced. The original trajectories estimated by ESVO (Block Matching using 10 thousand events) and ESVIO_AA (Block Matching using 5 thousand events) on DSEC dataset have been uploaded.
 
 Among them, `stamped_groundtruth_alignment.txt` is the trajectory output by the lidar algorithm rotated to the camera system.
 
@@ -107,4 +111,3 @@ Among them, `stamped_groundtruth_alignment.txt` is the trajectory output by the 
 For questions or inquiries, please feel free to contact us at JunkaiNiu@hnu.edu.cn or eeyzhou@hnu.edu.cn.
 
 We appreciate your interest in our work!
-
