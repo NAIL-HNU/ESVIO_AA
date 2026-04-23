@@ -215,6 +215,8 @@ namespace esvio_image_representation
       cv::Mat AA_map = cv::Mat::zeros(sensor_size_, CV_8UC1);
 
       int rect_size = 80;
+      if(AA_map.rows < 480)
+        rect_size = 20;
       std::vector<cv::Rect> rect_rois(sensor_size_.height * sensor_size_.width / (rect_size * rect_size));
 
       // Create regions of interest based on the rect size.

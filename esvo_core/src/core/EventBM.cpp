@@ -135,6 +135,8 @@ bool esvo_core::core::EventBM::match_an_event2(
     return false;
   if(updisp < (int)upDisparity)
     upDisparity = (size_t)updisp;
+  if(upDisparity < lowDisparity)
+    return false;
 
   // rectify and floor the coordinate
   int redundant = 4;
@@ -195,6 +197,12 @@ bool esvo_core::core::EventBM::match_an_event2(
   {
     mean_l = patch_src.array().sum() / (patch_src.rows() * patch_src.cols());
     Tl_square = (patch_src.array().pow(2)).sum();
+    // Check if search range is valid
+    if (upDisparity < lowDisparity)
+    {
+      infoNoiseRatioLowNum_++;
+      return false;
+    }
     patch_r = pStampedTsObs_->second.TS_right_.block(
             x1_left_top(1), x1_left_top(0) - (int)upDisparity, patch_size_Y_, patch_size_X_ + (int)upDisparity);
     

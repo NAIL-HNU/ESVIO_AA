@@ -988,6 +988,8 @@ namespace esvo_core
     EventQueue EQ_tmp;
     cv::Mat resultImg = cv_ptr_left->image.clone();
     int rect_size = 80;
+    if(resultImg.rows < 480)
+      rect_size = 20;
     std::vector<std::vector<std::pair<int, cv::Point>>> roi_events(resultImg.rows * resultImg.cols / (rect_size * rect_size));
     std::vector<int> num_of_roi(resultImg.rows * resultImg.cols / (rect_size * rect_size), 0);
     cv::Mat AA = cv::Mat::zeros(resultImg.size(), resultImg.type());
@@ -1237,8 +1239,8 @@ namespace esvo_core
         PointCloud::Ptr pc_filtered(new PointCloud());
         pcl::VoxelGrid<pcl::PointXYZ> sor;
         sor.setInputCloud(pc_near_);
-        // sor.setLeafSize(0.03, 0.03, 0.03);// Used in small scale environment.
-        sor.setLeafSize(0.3, 0.3, 0.3); // Used in large scale environment.
+        sor.setLeafSize(0.03, 0.03, 0.03);// Used in small scale environment.
+        // sor.setLeafSize(0.3, 0.3, 0.3); // Used in large scale environment.
         sor.filter(*pc_filtered);
 
         // copy the most current pc tp pc_global

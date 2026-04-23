@@ -4,7 +4,7 @@ representation_mode: 2
     # TS,    //0
     # AA(Adaptive Accumulation),   //1
     # Linear_TS //2
-decay_ms: 30
+decay_ms: 50
 median_blur_kernel_size: 1
 TOS_k: 9
 TOS_T: 241

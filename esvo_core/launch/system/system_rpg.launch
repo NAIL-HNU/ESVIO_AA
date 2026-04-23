@@ -2,22 +2,22 @@
   <rosparam param="/use_sim_time">true</rosparam>
 
   <!-- Time surfaces generation -->
-  <node name="TimeSurface_left" pkg="esvo_time_surface" type="esvo_time_surface">
+  <node name="TimeSurface_left" pkg="esvio_image_representation" type="esvio_image_representation" output="screen">
     <remap from="events" to="/davis/left/events" />
     <remap from="image" to="/davis/left/image_raw" />
     <remap from="camera_info" to="/davis/left/camera_info" />
-    <remap from="time_surface" to="TS_left" />
+    <remap from="image_representation" to="TS_left" />
 
-    <rosparam command="load" file="$(find esvo_core)/cfg/time_surface/ts_parameters.yaml" />
+    <rosparam command="load" file="$(find esvio_image_representation)/cfg/esvio_image_representation_TS_l.yaml" />
   </node>
 
-  <node name="TimeSurface_right" pkg="esvo_time_surface" type="esvo_time_surface">
+  <node name="TimeSurface_right" pkg="esvio_image_representation" type="esvio_image_representation" output="screen">
     <remap from="events" to="/davis/right/events" />
     <remap from="image" to="/davis/right/image_raw" />
     <remap from="camera_info" to="/davis/right/camera_info" />
-    <remap from="time_surface" to="TS_right" />
+    <remap from="image_representation" to="TS_right" />
 
-    <rosparam command="load" file="$(find esvo_core)/cfg/time_surface/ts_parameters.yaml" />
+    <rosparam command="load" file="$(find esvio_image_representation)/cfg/esvio_image_representation_TS_r.yaml" />
   </node>
 
   <node name="esvio_image_representation_left" pkg="esvio_image_representation" type="esvio_image_representation" output="screen">
@@ -51,7 +51,7 @@
   </node>
 
   <!-- Synchronize both Time Surfaces using the rosbag timer -->
-  <node name="global_timer" pkg="rostopic" type="rostopic" args="pub -s -r 50 /sync std_msgs/Time 'now' ">
+  <node name="global_timer" pkg="rostopic" type="rostopic" args="pub -s -r 10 /sync std_msgs/Time 'now' ">
     <!-- Modify the rate according to the speed that the bag is played-->
   </node>
 
@@ -81,7 +81,7 @@
     <remap from="stamped_pose" to="/esvo_tracking/pose_pub" />
     <remap from="gt_pose" to="/optitrack/davis_stereo" />
     <remap from="events_left" to="/davis/left/events" />
-    <remap from="/davis/left/imu" to="/imu/data" />
+    <!-- <remap from="/davis/left/imu" to="/imu/data" /> -->
     <remap from="pointcloud" to="/esvo2_mapping/pointcloud_local2" />
 
     <rosparam param="dvs_frame_id">"dvs"</rosparam>
@@ -92,8 +92,11 @@
   </node>
 
   <!-- Visualization -->
-  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui"
-    args="--perspective-file $(find esvo_core)/esvo_system.perspective" />
-  <node pkg="rviz" type="rviz" name="rviz"
-    args="-d $(find esvo_core)/esvo_system.rviz" />
+  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" args="--perspective-file $(find esvo_core)/esvo_system_DSEC.perspective" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find esvo_core)/esvo_system_DSEC.rviz" />
+
+  <include file="$(find esvio_image_representation)/launch/camera_info_rpg.launch" />
+  <!-- <node pkg="rosbag" type="play" name="play" output="screen"
+    args="/home/njk/Downloads/dukto/rpg/bin_edited.bag -r 0.1 -q  clock">
+  </node> -->
 </launch>
