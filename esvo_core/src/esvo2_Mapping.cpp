@@ -989,7 +989,7 @@ namespace esvo_core
     cv::Mat resultImg = cv_ptr_left->image.clone();
     int rect_size = 80;
     if(resultImg.rows < 480)
-      rect_size = 20;
+      rect_size = 30;
     std::vector<std::vector<std::pair<int, cv::Point>>> roi_events(resultImg.rows * resultImg.cols / (rect_size * rect_size));
     std::vector<int> num_of_roi(resultImg.rows * resultImg.cols / (rect_size * rect_size), 0);
     cv::Mat AA = cv::Mat::zeros(resultImg.size(), resultImg.type());
